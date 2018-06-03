@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ValueComponent } from './components/value/value.component';
+import { HttpClientModule } from '@angular/common/http'; 
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +12,9 @@ import { ValueComponent } from './components/value/value.component';
     ValueComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
