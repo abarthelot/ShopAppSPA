@@ -6,11 +6,20 @@
         <mat-card-content>
                 <form #signupForm=ngForm (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
                     <mat-form-field>
-                        <input matInput placeholder="Username" type="text" name="username" [(ngModel)]="form.username" required>
+                        <input matInput placeholder="Username" type="text" name="username" [(ngModel)]="form.username" required (blur)="validateUsenameFire()">
                     </mat-form-field>
+                    <mat-error [hidden]="!usernameError">
+                        <small>{{ usernameError }}</small>
+                    </mat-error>
                     <mat-form-field>
-                        <input matInput placeholder="Email" type="email" name="email" [(ngModel)]="form.email" required>
+                        <input matInput placeholder="Email" type="email" name="email" [(ngModel)]="form.email" required (blur)="validateEmailFire()">
                     </mat-form-field>
+                    <mat-error [hidden]="!invalidEmail">
+                        <small>Please enter a valid email address</small>
+                      </mat-error>
+                      <mat-error [hidden]="!emailError">
+                        <small>{{ emailError }}</small>
+                      </mat-error>
                     <mat-form-field>
                          <input matInput placeholder="Password" type="password" name="password" [(ngModel)]="form.password" required>
                     </mat-form-field>

@@ -3,7 +3,7 @@ import { ServerCallsService } from '../../services/server-calls.service';
 import { Router } from "@angular/router";
 import { TooltipPosition } from '@angular/material';
 import { AuthService } from '../../services/auth.service';
-import { SnotifyService } from "ng-snotify";
+import { SnotifyModule, SnotifyService } from "ng-snotify";
 
 
 
@@ -42,8 +42,13 @@ export class NavComponent implements OnInit {
   }
 
   handleErrors(error){
-    console.log(error.error);
-    this.snoty.error(error.error, 'Error');
+    if(error.error == "Bad Credentials")
+    {
+      this.snoty.error('Username or Password incorrect!', 'Bad Credentials');
+    }else{
+      this.snoty.error('Something went wrong!', 'Oops');
+      console.log(error.error);
+    }
   }
 
   logout(){

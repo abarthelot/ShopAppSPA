@@ -31,9 +31,10 @@ import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
     MaterialModule,
     FormsModule,
     AppRoutingModule,
+    BrowserModule,
     SnotifyModule
   ],
-  providers: [BaseInfoService, ServerCallsService, {provide: 'SnotifyToastConfig', useValue:ToastDefaults }, SnotifyService],
+  providers: [BaseInfoService, ServerCallsService, {provide: 'SnotifyToastConfig', useValue:ToastDefaults }, SnotifyService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
