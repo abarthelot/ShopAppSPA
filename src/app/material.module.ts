@@ -11,7 +11,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 
@@ -19,9 +20,11 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
     imports: [ MatButtonModule, MatInputModule, MatIconModule, MatFormFieldModule, FlexLayoutModule, 
-        MatCardModule, MatDividerModule, MatCheckboxModule, MatExpansionModule, MatListModule, MatProgressBarModule ],
+        MatCardModule, MatDividerModule, MatCheckboxModule, MatExpansionModule, MatListModule, MatProgressBarModule, 
+        MatTooltipModule, MatMenuModule ],
     exports: [ MatButtonModule, MatInputModule, MatIconModule, MatFormFieldModule, FlexLayoutModule,
-        MatCardModule, MatDividerModule, MatCheckboxModule, MatExpansionModule, MatListModule, MatProgressBarModule ]
+        MatCardModule, MatDividerModule, MatCheckboxModule, MatExpansionModule, MatListModule, MatProgressBarModule, 
+        MatTooltipModule, MatMenuModule ]
 })
 
 export class MaterialModule{}

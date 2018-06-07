@@ -1,0 +1,30 @@
+<br>
+<div class="main-div">
+    
+    <mat-card class="z-depth center">
+        <mat-card-title>Signup</mat-card-title>
+        <mat-card-content>
+                <form #signupForm=ngForm (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+                    <mat-form-field>
+                        <input matInput placeholder="Username" type="text" name="username" [(ngModel)]="form.username" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="Email" type="email" name="email" [(ngModel)]="form.email" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                         <input matInput placeholder="Password" type="password" name="password" [(ngModel)]="form.password" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                            <input matInput placeholder="Retype Password" type="password" name="password_confirmation" [(ngModel)]="password_confirmation" required>
+                    </mat-form-field>
+                    <mat-checkbox>Agree to our <a class="" routerLink="/signin">Terms & Condition</a></mat-checkbox>
+                    <div class="alert alert-danger" [hidden]="!error">{{ error }}</div>
+                    <span><button mat-raised-button type="submit" [disabled]="!signupForm.valid">Signup</button></span>
+                </form>
+        </mat-card-content>	
+        <mat-card-footer>
+            <div class="as">Forgot password? Reset <a class="badge badge-secondary" routerLink="/signin">here</a></div>
+        </mat-card-footer>
+    </mat-card>
+
+</div>

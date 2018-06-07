@@ -2,21 +2,38 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ValueComponent } from './components/value/value.component';
 import { HttpClientModule } from '@angular/common/http'; 
 import { MaterialModule } from './material.module';
+import { NavComponent } from './components/nav/nav.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
+import { BaseInfoService } from './services/base-info.service';
+import { ServerCallsService } from './services/server-calls.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './components/home/home.component';
+import { RegisterComponent } from './components/register/register.component';
+import { AppRoutingModule } from './/app-routing.module'
+import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ValueComponent
+    NavComponent,
+    HomeComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    MaterialModule
+    BrowserAnimationsModule,
+    NgbModule,
+    MaterialModule,
+    FormsModule,
+    AppRoutingModule,
+    SnotifyModule
   ],
-  providers: [],
+  providers: [BaseInfoService, ServerCallsService, {provide: 'SnotifyToastConfig', useValue:ToastDefaults }, SnotifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

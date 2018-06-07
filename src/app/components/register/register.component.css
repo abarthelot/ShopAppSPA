@@ -1,0 +1,23 @@
+mat-form-field {
+    width: 300px;
+}
+
+.main-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar{
+    display: none;
+}
+
+.as{
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    color: #999;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 5px;
+}
