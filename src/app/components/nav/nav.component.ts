@@ -66,5 +66,9 @@ export class NavComponent implements OnInit {
     this.router.navigateByUrl('/home');
   }
 
+  getUser(){
+    return this._auth.getUsername();
+  }
+
 
 }

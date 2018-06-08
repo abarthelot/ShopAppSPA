@@ -17,15 +17,13 @@
             </li>
           </ul>
           <ul class="navbar-nav" *ngIf="isLoggedin()">
-            <li class="nav-item">
-                <a class="nav-link active" href="#" (click)="logout()">Logout</a>
-            </li>
-            <li class="nav-item dropdown show" matTooltip="click to view user Information, purchase history and favourites" [matTooltipPosition]="'below'">
-                <a class="nav-link dropdown-toggle active" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="toggleSelect()" style="cursor: pointer;">Welcome User</a>
-                <div class="dropdown-menu show" aria-labelledby="dropdown04" *ngIf="isMenuCollapsed">
+            <li dropdown class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active" dropdownToggle id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style="cursor: pointer;">Welcome {{ getUser() | titlecase }}</a>
+                <div class="dropdown-menu show" *dropdownMenu aria-labelledby="dropdown04">
                   <a class="dropdown-item" href="#">User Details</a>
                   <a class="dropdown-item" href="#">Purchase History</a>
                   <a class="dropdown-item" href="#">Favourites</a>
+                  <a class="dropdown-item" href="#" (click)="logout()">Logout</a>
                 </div>
             </li>
           </ul>
@@ -36,3 +34,4 @@
           </form>
         </div>
       </nav>
+

@@ -1,0 +1,13 @@
+.bg-dark .dropdown-menu {
+    background-color: #007bff !important;
+}
+
+.bg-dark .dropdown-menu .dropdown-item, .bg-dark .dropdown-menu .dropdown-item:focus {
+    color: #ffffff !important;
+    font-weight: 800 !important;
+}
+
+.bg-dark {
+    background-color: #007bff !important;
+    font-weight: 800 !important;
+}

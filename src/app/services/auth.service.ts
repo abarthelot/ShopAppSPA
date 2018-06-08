@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { tokenNotExpired, JwtHelper } from 'angular2-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +8,13 @@ export class AuthService {
 
   constructor() { }
   token: any;
+  decodedToken: any;
+  jwtHelper: JwtHelper = new JwtHelper();
 
   set(token){
     this.token = token;
-    localStorage.setItem('token',token);
+    localStorage.setItem('token',token.tokenString);
+    this.decodedToken = this.jwtHelper.decodeToken(token.tokenString);
   }
 
   get(){
@@ -23,8 +27,11 @@ export class AuthService {
   }
 
   isLoggedin(){
-    const getToken = localStorage.getItem("token");
-    return !!getToken;
+    return tokenNotExpired('token');
+  }
+
+  getUsername(){
+    return this.decodedToken.unique_name;
   }
 
 }
