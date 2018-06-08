@@ -6,23 +6,21 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse" [ngbCollapse]="isCollapsed">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <li class="nav-item" routerLinkActive="active" >
+              <a class="nav-link" [routerLink]="['/home']">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+            <li class="nav-item" routerLinkActive="active" >
+              <a class="nav-link" [routerLink]="['/perchase-history']">Purchase History</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
+            <li class="nav-item" routerLinkActive="active" >
+              <a class="nav-link"  [routerLink]="['/favourites']">Favourites</a>
             </li>
           </ul>
           <ul class="navbar-nav" *ngIf="isLoggedin()">
             <li dropdown class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle active" dropdownToggle id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style="cursor: pointer;">Welcome {{ getUser() | titlecase }}</a>
+                <a (click)="false" class="nav-link dropdown-toggle active" dropdownToggle id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style="cursor: pointer;">Welcome {{ getUser() | titlecase }}</a>
                 <div class="dropdown-menu show" *dropdownMenu aria-labelledby="dropdown04">
-                  <a class="dropdown-item" href="#">User Details</a>
-                  <a class="dropdown-item" href="#">Purchase History</a>
-                  <a class="dropdown-item" href="#">Favourites</a>
+                  <a class="dropdown-item" [routerLink]="['/user-details']" routerLinkActive="router-link-active" >User Details</a>
                   <a class="dropdown-item" href="#" (click)="logout()">Logout</a>
                 </div>
             </li>
@@ -30,7 +28,7 @@
           <form #loginForm="ngForm" class="form-inline mt-2 mt-md-0" (submit)="login()" *ngIf="!isLoggedin()">
             <input class="form-control mr-sm-2" name="username" type="text" placeholder="Username" required aria-label="Username" [(ngModel)]="formData.username">
             <input class="form-control mr-sm-2" name="password" type="password" placeholder="Password" required aria-label="Password" [(ngModel)]="formData.password">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" [disabled]="!loginForm.valid">Login</button>
+            <button class="btn btn-outline cust-btn my-2 my-sm-0" type="submit" [disabled]="!loginForm.valid">Login</button>
           </form>
         </div>
       </nav>
