@@ -15,6 +15,12 @@ import { RegisterComponent } from './components/register/register.component';
 import { AppRoutingModule } from './/app-routing.module'
 import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 import { AlertifyService } from './services/alertify.service';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { PerchaseHistoryComponent } from './components/perchase-history/perchase-history.component';
+import { FavouritesComponent } from './components/favourites/favourites.component';
+import { ItemDetailsComponent } from './components/item-details/item-details.component';
+import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
+import { RequestResponseComponent } from './components/password/request-response/request-response.component';
 
 
 
@@ -23,7 +29,13 @@ import { AlertifyService } from './services/alertify.service';
     AppComponent,
     NavComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserDetailsComponent,
+    PerchaseHistoryComponent,
+    FavouritesComponent,
+    ItemDetailsComponent,
+    RequestResetComponent,
+    RequestResponseComponent
   ],
   imports: [
     BrowserModule,
