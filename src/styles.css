@@ -1,6 +1,32 @@
-@import "~bootstrap/dist/css/bootstrap.css";
-@import "~font-awesome/css/font-awesome.css";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "~ng-snotify/styles/material.css";
 @import "~alertifyjs/build/css/themes/bootstrap.min.css";
 @import "~bootswatch/dist/yeti/bootstrap.min.css";
+
+    .container{
+        min-height: 100vh;
+        background-color: aliceblue;
+    }
+     
+    /* alternatively: html { min-height: 100%; height: 100%; } */    
+    
+    html { min-height: 100%; }
+    body {
+        min-height: 100vh;
+        background:
+        linear-gradient(324deg, #232927 4%,   transparent 4%) -70px 43px,
+        linear-gradient( 36deg, #232927 4%,   transparent 4%) 30px 43px,
+        linear-gradient( 72deg, #e3d7bf 8.5%, transparent 8.5%) 30px 43px,
+        linear-gradient(288deg, #e3d7bf 8.5%, transparent 8.5%) -70px 43px,
+        linear-gradient(216deg, #e3d7bf 7.5%, transparent 7.5%) -70px 23px,
+        linear-gradient(144deg, #e3d7bf 7.5%, transparent 7.5%) 30px 23px,
+        
+        linear-gradient(324deg, #232927 4%,   transparent 4%) -20px 93px,
+        linear-gradient( 36deg, #232927 4%,   transparent 4%) 80px 93px,
+        linear-gradient( 72deg, #e3d7bf 8.5%, transparent 8.5%) 80px 93px,
+        linear-gradient(288deg, #e3d7bf 8.5%, transparent 8.5%) -20px 93px,
+        linear-gradient(216deg, #e3d7bf 7.5%, transparent 7.5%) -20px 73px,
+        linear-gradient(144deg, #e3d7bf 7.5%, transparent 7.5%) 80px 73px;
+        background-color: #232927 !important;
+        background-size: 100px 100px;
+      }

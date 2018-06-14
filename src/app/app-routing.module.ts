@@ -1,14 +1,14 @@
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { RegisterComponent } from './components/register/register.component';
+import { RegisterComponent } from './components/users/register/register.component';
 import { BeforeLoginService } from './services/before-login.service';
 import { HomeComponent } from './components/home/home.component';
-import { FavouritesComponent } from './components/favourites/favourites.component';
+import { FavouritesComponent } from './components/items/favourites/favourites.component';
 import { AfterLoginService } from './services/after-login.service';
-import { UserDetailsComponent } from './components/user-details/user-details.component';
-import { ItemDetailsComponent } from './components/item-details/item-details.component';
-import { PerchaseHistoryComponent } from './components/perchase-history/perchase-history.component';
+import { UserDetailsComponent } from './components/users/user-details/user-details.component';
+import { ItemDetailsComponent } from './components/items/item-details/item-details.component';
+import { PerchaseHistoryComponent } from './components/users/perchase-history/perchase-history.component';
 
 
 const appRoutes: Routes = [
@@ -39,7 +39,7 @@ const appRoutes: Routes = [
     canActivate: [AfterLoginService]
   },
   {
-    path: "item-details",
+    path: "item-details/:id",
     component: ItemDetailsComponent,
     canActivate: []
   },

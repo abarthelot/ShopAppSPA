@@ -1,0 +1,15 @@
+  
+  <img class="card-img-top img-fluid" src="{{ item.imageUrl }}" alt="{{ item.title }} pic">
+  <div class="card-body">
+    <h5 class="card-title">{{ item.title }}</h5>
+    <p class="card-text">Shiping Address: {{ item.title }} 
+      {{ item.shipingCountry }}
+    </p>
+    <div class="btn-toolbar text-center" role="toolbar" aria-label="Toolbar with button groups">
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-secondary"><i class="fas fa-cart-plus"></i></button>
+        <button type="button" class="btn btn-secondary"><i class="fas fa-heart"></i></button>
+        <button type="button" class="btn btn-secondary" [routerLink]="['/item-details/', item.id]" routerLinkActive="router-link-active" ><i class="fas fa-info"></i></button>
+      </div>
+    </div>
+  </div>
