@@ -1,3 +1,100 @@
-<p>
-  user-details works!
-</p>
+<br>
+<h1>User details</h1>
+<div class="card">
+  <div class="card-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 50%;"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Email</td>
+          <td>
+            {{ user?.email }}
+          </td>
+        </tr>
+        <tr>
+          <td>Username</td>
+          <td>{{ user?.username }}</td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Change password type here" type="password">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>Retype-Password</td>
+          <td>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Retype-password" type="password">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>Address</td>
+          <td>
+            <mat-form-field class="full-width">
+              <textarea matInput placeholder="Address" [(ngModel)]="user.address"></textarea>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>Country</td>
+          <td>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Country" type="text" [(ngModel)]="user.country">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>Postal Code</td>
+          <td>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Postal Code" type="text" [(ngModel)]="user.postalCode">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>Profile Pic</td>
+          <td><input type="file" ng2FileSelect [uploader]="uploader" /></td>
+        </tr>
+        <tr *ngIf="uploader?.queue?.length">
+          <td>-</td>
+          <td>
+            <div>
+              <div>
+                Queue progress:
+                <div class="progress" style="">
+                  <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+                </div>
+              </div>
+              <button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+                <span class="glyphicon glyphicon-upload"></span> Upload
+              </button>
+              <button type="button" class="btn btn-warning btn-s" (click)="uploader.cancelAll()" [disabled]="!uploader.isUploading">
+                <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+              </button>
+              <button type="button" class="btn btn-danger btn-s" (click)="uploader.clearQueue()" [disabled]="!uploader.queue.length">
+                <span class="glyphicon glyphicon-trash"></span> Remove
+              </button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Joined</td>
+          <td>{{ user.joined | date }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <a class="btn btn-primary pull-right">Save</a>
+  </div>
+  <div class="">
+    
+  </div>
+</div>

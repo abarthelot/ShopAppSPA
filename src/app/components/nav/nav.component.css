@@ -18,3 +18,15 @@
     background-color: #007bff !important;
     border-radius: 5px;
 }
+
+.profile-pic{
+    max-height: 50px;
+    border: 2px solid white;
+    display: inline;
+}
+
+.top-drop{
+    cursor: pointer;
+    padding-bottom: 0px;
+    height: 100%;
+}

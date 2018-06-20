@@ -13,6 +13,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 
@@ -21,10 +22,10 @@ import { MatMenuModule } from '@angular/material/menu';
 @NgModule({
     imports: [ MatButtonModule, MatInputModule, MatIconModule, MatFormFieldModule, FlexLayoutModule, 
         MatCardModule, MatDividerModule, MatCheckboxModule, MatExpansionModule, MatListModule, MatProgressBarModule, 
-        MatTooltipModule, MatMenuModule ],
+        MatTooltipModule, MatMenuModule, MatRadioModule ],
     exports: [ MatButtonModule, MatInputModule, MatIconModule, MatFormFieldModule, FlexLayoutModule,
         MatCardModule, MatDividerModule, MatCheckboxModule, MatExpansionModule, MatListModule, MatProgressBarModule, 
-        MatTooltipModule, MatMenuModule ]
+        MatTooltipModule, MatMenuModule, MatRadioModule ]
 })
 
 export class MaterialModule{}

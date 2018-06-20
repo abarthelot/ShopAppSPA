@@ -26,7 +26,7 @@ export class ItemDetailsComponent implements OnInit {
             height: '500px',
             thumbnailsColumns: 4,
             imageAnimation: NgxGalleryAnimation.Slide,
-            preview: false
+            preview: true
         }
     ];
   }

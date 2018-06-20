@@ -17,7 +17,15 @@
           </div>
           <div>
             <strong>On Sale Since:</strong>
-            <p>{{item?.createdDate}}</p>
+            <p>{{item?.createdDate | date }}</p>
+          </div>
+          <div>
+            <strong>Type:</strong>
+            <p>{{item?.isService}}</p>
+          </div>
+          <div style="padding-bottom: 10px;">
+            <button class="btn btn-primary" [routerLink]="['/item-edit/', item?.id ]"><i class="fas fa-edit"></i> Edit</button>
+            <br>
           </div>
         </div>
         <div class="panel-footer">

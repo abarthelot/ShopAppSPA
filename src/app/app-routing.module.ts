@@ -9,6 +9,8 @@ import { AfterLoginService } from './services/after-login.service';
 import { UserDetailsComponent } from './components/users/user-details/user-details.component';
 import { ItemDetailsComponent } from './components/items/item-details/item-details.component';
 import { PerchaseHistoryComponent } from './components/users/perchase-history/perchase-history.component';
+import { ItemEditComponentComponent } from './components/Items/item-edit-component/item-edit-component.component';
+import { OnlyOwnerServiceService } from './services/only-owner-service.service';
 
 
 const appRoutes: Routes = [
@@ -42,6 +44,11 @@ const appRoutes: Routes = [
     path: "item-details/:id",
     component: ItemDetailsComponent,
     canActivate: []
+  },
+  {
+    path: "item-edit/:id",
+    component: ItemEditComponentComponent,
+    canActivate: [OnlyOwnerServiceService]
   },
   {
     path: "perchase-history",

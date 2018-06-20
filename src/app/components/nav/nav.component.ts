@@ -19,8 +19,12 @@ export class NavComponent implements OnInit {
     username: null,
     password: null
   }
+  imageUrl: string;
 
   ngOnInit() {
+    this._auth.currentImageUrl.subscribe(photoUrl => this.imageUrl = photoUrl);
+    console.log(this.imageUrl);
+    
   }
   isCollapsed = true;
   isMenuCollapsed = false;
@@ -53,8 +57,11 @@ export class NavComponent implements OnInit {
 
   logout(){
     this.auth.remove();
+    this.auth.user = null;
+    localStorage.removeItem('user');
     console.log("Logged out.");
     this.router.navigateByUrl('/home');
+    
   }
 
   isLoggedin(){
@@ -62,12 +69,17 @@ export class NavComponent implements OnInit {
   }
 
   setToken(data){
+    console.log(data);
     this._auth.set(data);
     this.router.navigateByUrl('/home');
   }
 
   getUser(){
     return this._auth.getUsername();
+  }
+
+  getPic(){
+    return this._auth.user.photoUrl;
   }
 
 

@@ -17,11 +17,15 @@
             </li>
           </ul>
           <ul class="navbar-nav" *ngIf="isLoggedin()">
+            <li>
+              <img *ngIf="imageUrl" class="profile-pic" src="{{ imageUrl }}">
+              <img *ngIf="!imageUrl" class="profile-pic" src="http://res.cloudinary.com/abart/image/upload/v1529393623/user.png">
+            </li>
             <li dropdown class="nav-item dropdown">
-                <a (click)="false" class="nav-link dropdown-toggle active" dropdownToggle id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style="cursor: pointer;">Welcome {{ getUser() | titlecase }}</a>
+                <a (click)="false" class="nav-link dropdown-toggle active top-drop" dropdownToggle id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style="cursor: pointer;">Welcome {{ getUser() | titlecase }}</a>
                 <div class="dropdown-menu show" *dropdownMenu aria-labelledby="dropdown04">
                   <a class="dropdown-item" [routerLink]="['/user-details']" routerLinkActive="router-link-active" >User Details</a>
-                  <a class="dropdown-item" href="#" (click)="logout()">Logout</a>
+                  <a class="dropdown-item" style="cursor: pointer;" (click)="logout()">Logout</a>
                 </div>
             </li>
           </ul>

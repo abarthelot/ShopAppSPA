@@ -1,0 +1,25 @@
+img.thumbnail {
+    height: 100px;
+    width: 100%;
+    margin-bottom: 2px;
+}
+
+.image{
+    padding: 0px;
+    margin-left: 10px;
+}
+
+.my-drop-zone { 
+    border: dotted 3px lightgray; 
+    margin-bottom: 2rem !important;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
+}
+.nv-file-over { border: dotted 3px red; } /* Default class applied to drop zones on over */
+.another-file-over-class { border: dotted 3px green; }
+
+input[type=file] {
+    color: transparent;
+}

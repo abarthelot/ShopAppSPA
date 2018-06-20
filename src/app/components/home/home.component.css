@@ -1,6 +1,7 @@
 app-item-card-component{
-    margin-right: 1rem !important;
+    margin-right: 0rem !important;
     display: inline-block !important;
+    padding: 0px !important;
 }
 
 .card{

@@ -1,0 +1,81 @@
+<div class="row">
+    
+</div>
+<div class="row">
+
+    <div class="col-sm-4">
+      <div class="panel panel-default left-panel">
+        <div class="panel-header">
+          <mat-form-field class="full-width">
+              <h2><input matInput placeholder="" [(ngModel)]="item.title" maxlength="50"></h2>
+          </mat-form-field>
+        </div>
+        <img class="item-main-image thumbnail" src="{{item?.imageUrl}}" alt="{{item?.title}}">
+        <div class="panel-body">
+          <div>
+            <strong>Price:</strong>
+            <p>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="USD$" [(ngModel)]="item.unitPrice" type="number" min="0">
+              </mat-form-field>
+            </p>
+          </div>
+          <div>
+            <strong>Shiping Address:</strong>
+              <p>
+                <mat-form-field class="full-width">
+                  <textarea matInput placeholder="" [(ngModel)]="item.shipingAddress"></textarea>
+                </mat-form-field>
+              </p>
+              <p>
+                  <mat-form-field class="full-width">
+                    <input matInput placeholder="" [(ngModel)]="item.shipingCountry">
+                  </mat-form-field>
+                </p>  
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+                  <div>
+                    <strong>On Sale Since:</strong>
+                    <p>{{item?.createdDate | date }}</p>
+                  </div>
+            </div>
+            <div class="col-lg-6">
+                <div>
+                    <div class="row">
+                        <strong>Type:</strong>
+                    </div>
+                    <div class="row">
+                        <input style="margin: 3px;" class="w3-radio" type="radio" name="food" [(ngModel)]="item.isService" [value]=true><label (click)="item.isService = true" for="r1">Service</label>
+                        <input style="margin: 3px;" class="w3-radio" type="radio" name="food" [(ngModel)]="item.isService" [value]=false><label (click)="item.isService = false" for="r1">Tangible </label>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-8">
+
+      <div class="tab-panel">
+        <tabset class="member-tabset">
+          <tab heading="Edit Description">
+            <h4>Description</h4>
+            <mat-form-field class="full-width">
+              <textarea matInput maxlength="256" placeholder="" [(ngModel)]="item.description"></textarea>
+              <mat-hint align="end">{{item?.description.length}} / 256</mat-hint>
+            </mat-form-field>
+          </tab>
+          <tab heading="Edit images">
+            <app-item-image-editor-component [images]="item?.photo" [itemId]="item?.id" (getItemImageChange)="updateMainimage($event)"></app-item-image-editor-component>         
+          </tab>
+        </tabset>
+        <div class="panel-footer">
+            <button class="btn btn-primary" style="margin-left: 10px !important;" (click)="save()"><i class="fas fa-save"></i> Save</button>
+        </div>
+      </div>
+
+    </div>
+  
+</div>

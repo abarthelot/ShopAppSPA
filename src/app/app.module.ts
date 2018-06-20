@@ -25,6 +25,9 @@ import { ItemCardComponentComponent } from './components/items/item-card-compone
 import { ItemDetailsComponent } from './components/items/item-details/item-details.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { NgxGalleryModule } from 'ngx-gallery';
+import { ItemEditComponentComponent } from './components/Items/item-edit-component/item-edit-component.component';
+import { ItemImageEditorComponentComponent } from './components/Items/item-image-editor-component/item-image-editor-component.component';
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 
@@ -41,7 +44,9 @@ import { NgxGalleryModule } from 'ngx-gallery';
     RequestResetComponent,
     RequestResponseComponent,
     UserListComponentComponent,
-    ItemCardComponentComponent
+    ItemCardComponentComponent,
+    ItemEditComponentComponent,
+    ItemImageEditorComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +60,8 @@ import { NgxGalleryModule } from 'ngx-gallery';
     SnotifyModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
-    NgxGalleryModule
+    NgxGalleryModule,
+    FileUploadModule
   ],
   providers: [
                 BaseInfoService, 
