@@ -1,7 +1,7 @@
 <div class="main">
     <div class="row" *ngIf="isCollapsed">
-        <div class="col-md-3"></div>
-        <div class="col-md-3">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
                 <div class="input-group mb-2" style="line-height: 35px; margin-top: 0.5rem;">
                     <input type="text" class="form-control" [(ngModel)]="searchTerm" placeholder="Search" aria-label="Search Terms" aria-describedby="basic-addon2">
                     <div class="input-group-append">
@@ -9,7 +9,7 @@
                     </div>
                 </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="input-group mb-3">
                 <mat-form-field>
                     <mat-select class="" [(value)]="selectedOrder">
