@@ -21,10 +21,11 @@
           </div>
           <div>
             <strong>Type:</strong>
-            <p>{{item?.isService}}</p>
+            <p *ngIf="item?.isService">Service</p>
+            <p *ngIf="!item?.isService">Tangible</p>
           </div>
           <div style="padding-bottom: 10px;">
-            <button class="btn btn-primary" [routerLink]="['/item-edit/', item?.id ]"><i class="fas fa-edit"></i> Edit</button>
+            <button *ngIf="displayEdit" class="btn btn-primary" [routerLink]="['/item-edit/', item?.id ]"><i class="fas fa-edit"></i> Edit</button>
             <br>
           </div>
         </div>

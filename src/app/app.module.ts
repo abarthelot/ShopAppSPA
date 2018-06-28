@@ -28,7 +28,9 @@ import { NgxGalleryModule } from 'ngx-gallery';
 import { ItemEditComponentComponent } from './components/Items/item-edit-component/item-edit-component.component';
 import { ItemImageEditorComponentComponent } from './components/Items/item-image-editor-component/item-image-editor-component.component';
 import { FileUploadModule } from 'ng2-file-upload';
-
+import { TimeAgoPipe } from 'time-ago-pipe';
+import { PaginationModule } from 'ngx-bootstrap';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 
 @NgModule({
@@ -46,7 +48,8 @@ import { FileUploadModule } from 'ng2-file-upload';
     UserListComponentComponent,
     ItemCardComponentComponent,
     ItemEditComponentComponent,
-    ItemImageEditorComponentComponent
+    ItemImageEditorComponentComponent,
+    TimeAgoPipe
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,9 @@ import { FileUploadModule } from 'ng2-file-upload';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     NgxGalleryModule,
-    FileUploadModule
+    FileUploadModule,
+    PaginationModule.forRoot(),
+    CollapseModule.forRoot()
   ],
   providers: [
                 BaseInfoService, 

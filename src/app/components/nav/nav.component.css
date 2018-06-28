@@ -30,3 +30,7 @@
     padding-bottom: 0px;
     height: 100%;
 }
+
+.bg-dark[_ngcontent-c1] {
+    z-index: 200 !important;
+}

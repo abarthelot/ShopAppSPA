@@ -96,7 +96,7 @@ export class ItemEditComponentComponent implements OnInit {
       this.postItem.userId = this.item['userId'],
       this.postItem.photo = this.item['photo']
     this.serverCalls.updateItem(this.postItem, this.item.id).subscribe(
-      data => this.SuccessHandel(data),
+      data => this.saveSuccessHandel(data),
       error => this.handleErrors(error)
     );
     
@@ -104,5 +104,9 @@ export class ItemEditComponentComponent implements OnInit {
 
   updateMainimage(url){
     this.item.imageUrl = url;
+  }
+
+  saveSuccessHandel(data){
+    this.snoty.success("Save successfully.", "Success");
   }
 }

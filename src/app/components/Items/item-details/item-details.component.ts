@@ -3,6 +3,7 @@ import { ServerCallsService } from '../../../services/server-calls.service';
 import { SnotifyModule, SnotifyService } from "ng-snotify";
 import { ActivatedRoute } from '@angular/router';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
+import { AuthService } from '../../../services/auth.service';
 
 
 @Component({
@@ -14,8 +15,10 @@ export class ItemDetailsComponent implements OnInit {
   item: any;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
+  displayEdit= false;
+  userId = 0;
 
-  constructor(private serverCalls: ServerCallsService, private snoty: SnotifyService, private route: ActivatedRoute) { }
+  constructor(private serverCalls: ServerCallsService, private snoty: SnotifyService, private route: ActivatedRoute, private _auth: AuthService) { }
 
   ngOnInit() {
     this.loadItemDetails();
@@ -54,6 +57,10 @@ export class ItemDetailsComponent implements OnInit {
     console.clear();
     this.item = data;
     this.galleryImages = this.getImages();
+    this.userId = this._auth.getId();
+    if(this.userId == data.userId && this._auth.isLoggedin){
+      this.displayEdit = true;
+    }
   }
 
   handleErrors(error){

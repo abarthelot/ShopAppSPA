@@ -3,6 +3,8 @@ import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
 import { RequestOptions } from '@angular/http';
 import { BaseInfoService } from './base-info.service';
 import { AuthService } from './auth.service';
+import { PaginatedResult } from '../_models/pagination';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -42,12 +44,33 @@ export class ServerCallsService {
     return this._http.get(`${this._baseInfo.serverUrl()}users/`+userId, {headers: headers});
   }
 
-  getItems(){
+  getItems(page?: number, itemsPerPage?: number, minPrice?: number, maxPrice?: number, type?: string, searchTerm?: string, orderBy?: string): Observable<any>{
+    let queryString = '?';
+    if(page != null && itemsPerPage != null)
+    {
+      queryString += 'pageNumber=' + page + '&pageSize=' + itemsPerPage; 
+    }
+    if(minPrice != null && maxPrice != null)
+    {
+      queryString += '&minPrice=' + minPrice + '&maxPrice=' + maxPrice; 
+    }
+    if(type != null)
+    {
+      queryString += '&isService=' + type; 
+    }
+    if(searchTerm != null)
+    {
+      queryString += '&searchTerm=' + searchTerm.trim();
+    }
+    if(orderBy != null)
+    {
+      queryString += '&orderBy=' + orderBy.trim();
+    }    
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
     //var jwtToken = this.jwt();
     //headers = headers.set('Authorization', jwtToken);
-    return this._http.get(`${this._baseInfo.serverUrl()}items`, {headers: headers});
+    return this._http.get(`${this._baseInfo.serverUrl()}items` + queryString, {headers: headers, observe: 'response'});
   }
 
   getItemOwner(id: number){

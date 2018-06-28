@@ -14,6 +14,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -22,10 +23,10 @@ import { MatRadioModule } from '@angular/material/radio';
 @NgModule({
     imports: [ MatButtonModule, MatInputModule, MatIconModule, MatFormFieldModule, FlexLayoutModule, 
         MatCardModule, MatDividerModule, MatCheckboxModule, MatExpansionModule, MatListModule, MatProgressBarModule, 
-        MatTooltipModule, MatMenuModule, MatRadioModule ],
+        MatTooltipModule, MatMenuModule, MatRadioModule, MatSelectModule ],
     exports: [ MatButtonModule, MatInputModule, MatIconModule, MatFormFieldModule, FlexLayoutModule,
         MatCardModule, MatDividerModule, MatCheckboxModule, MatExpansionModule, MatListModule, MatProgressBarModule, 
-        MatTooltipModule, MatMenuModule, MatRadioModule ]
+        MatTooltipModule, MatMenuModule, MatRadioModule, MatSelectModule ]
 })
 
 export class MaterialModule{}
