@@ -3,7 +3,7 @@
         <div class="col-md-4"></div>
         <div class="col-md-4">
                 <div class="input-group mb-2" style="line-height: 35px; margin-top: 0.5rem;">
-                    <input type="text" class="form-control" [(ngModel)]="searchTerm" placeholder="Search" aria-label="Search Terms" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" (keyup.enter)="loadItems()" [(ngModel)]="searchTerm" placeholder="Search" aria-label="Search Terms" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                       <button class="btn btn-outline-primary" (click)="loadItems()" type="button"><i class="fas fa-search"></i></button>
                     </div>
@@ -37,7 +37,7 @@
                             <h5 class="card-title">Advance Search</h5>
                             <div class="row mb-3">
                                 <div class="col-md-12">
-                                        <input type="text" class="form-control" [(ngModel)]="searchTerm" placeholder="Search Terms" aria-label="Search Terms" aria-describedby="basic-addon2">
+                                        <input type="text" (keyup.enter)="loadItems()" class="form-control" [(ngModel)]="searchTerm" placeholder="Search Terms" aria-label="Search Terms" aria-describedby="basic-addon2">
                                 </div>
                             </div>
                             <div class="row">
@@ -126,9 +126,9 @@
             </div>
     </div>
     <br>
-    <div class="row">
+    <div class="row d-flex justify-content-between">
         <div *ngFor="let item of items" class="card">
-            <app-item-card-component [item]="item" class="p-3"></app-item-card-component> 
+            <app-item-card-component [item]="item" [isHome]="home" class="p-3"></app-item-card-component> 
         </div>
     </div>
 

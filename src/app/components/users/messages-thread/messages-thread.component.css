@@ -1,0 +1,37 @@
+.main-h{
+    margin-top: 15px;
+}
+
+.w100{
+    width: 100% !important;
+}
+
+.chat {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.chat li {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dotted #b3a9a9;
+}
+
+.img-circle {
+    height: 50px;
+    width: 50px;
+}
+
+.left-marg{
+    margin-left: 15px !important;
+}
+
+.right-marg{
+    margin-right: 15px !important;
+}
+
+.card-body {
+    overflow-y: scroll;
+    height: 500px;
+}

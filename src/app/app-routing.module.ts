@@ -11,6 +11,8 @@ import { ItemDetailsComponent } from './components/items/item-details/item-detai
 import { PerchaseHistoryComponent } from './components/users/perchase-history/perchase-history.component';
 import { ItemEditComponentComponent } from './components/Items/item-edit-component/item-edit-component.component';
 import { OnlyOwnerServiceService } from './services/only-owner-service.service';
+import { MessagesComponent } from './components/users/messages/messages.component';
+import { MessagesThreadComponent } from './components/users/messages-thread/messages-thread.component';
 
 
 const appRoutes: Routes = [
@@ -53,6 +55,16 @@ const appRoutes: Routes = [
   {
     path: "perchase-history",
     component: PerchaseHistoryComponent,
+    canActivate: [AfterLoginService]
+  },
+  {
+    path: "messages",
+    component: MessagesComponent,
+    canActivate: [AfterLoginService]
+  },
+  {
+    path: "msg_thread/:rId/:iId",
+    component: MessagesThreadComponent,
     canActivate: [AfterLoginService]
   },
 ];

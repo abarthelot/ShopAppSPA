@@ -31,6 +31,9 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { TimeAgoPipe } from 'time-ago-pipe';
 import { PaginationModule } from 'ngx-bootstrap';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { MessagesComponent } from './components/users/messages/messages.component';
+import { MessagesThreadComponent } from './components/users/messages-thread/messages-thread.component';
+
 
 
 @NgModule({
@@ -49,7 +52,9 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
     ItemCardComponentComponent,
     ItemEditComponentComponent,
     ItemImageEditorComponentComponent,
-    TimeAgoPipe
+    TimeAgoPipe,
+    MessagesComponent,
+    MessagesThreadComponent
   ],
   imports: [
     BrowserModule,

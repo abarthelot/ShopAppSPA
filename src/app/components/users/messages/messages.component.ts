@@ -1,37 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { ServerCallsService } from '../../../services/server-calls.service';
 import { SnotifyService } from 'ng-snotify';
-import { Pagination } from '../../../_models/pagination';
 import { AuthService } from '../../../services/auth.service';
+import { Pagination } from '../../../_models/pagination';
+import * as _ from 'underscore';
 
 @Component({
-  selector: 'app-favourites',
-  templateUrl: './favourites.component.html',
-  styleUrls: ['./favourites.component.css']
+  selector: 'app-messages-component',
+  templateUrl: './messages.component.html',
+  styleUrls: ['./messages.component.css']
 })
-export class FavouritesComponent implements OnInit {
+export class MessagesComponent implements OnInit {
 
-  items: any[];
+  messages: any[];
   resBody: any;
   currentPage = 1;
   itemsPerPage = 6;
-  isCollapsed = true;
-  selectedType = 'all';
-  selectedLocation = 'all';
-  minPrice = 0;
-  maxPrice = 0;
-  searchTerm = '';
-  selectedOrder = 'created-dsc';
-
+  messageContainer = 'unread';
+  pagination: Pagination;
+  
   constructor(private serverCalls: ServerCallsService, private snoty: SnotifyService, private _auth: AuthService) { }
 
-  pagination: Pagination;
   ngOnInit() {
+    this.messageContainer = 'unread';
     this.loadItems();
   }
 
   loadItems(){
-    this.serverCalls.getFavorites(this._auth.getId(),this.currentPage, this.itemsPerPage, this.minPrice, this.maxPrice,this.selectedType, this.searchTerm, this.selectedOrder).subscribe(
+    this.serverCalls.getMessages(this._auth.getId(),this.currentPage, this.itemsPerPage, this.messageContainer).subscribe(
       res => { 
 	      this.resBody = res.body;
         this.SuccessHandel(this.resBody);
@@ -50,13 +46,16 @@ export class FavouritesComponent implements OnInit {
   }
 
   SuccessHandel(data){
-    this.items = data;
+    this.messages = [];
+    this.messages = data;
     console.clear();
+    console.log(data[0].aboutItem.user.id);
+    
   }
 
   handleErrors(error){
     console.log(error);
-    this.snoty.error("Failed to load, Please try again later.", "Error");
+    this.snoty.error("Something went wrong, Please try again later.", "Error");
   }
 
   pageChanged(event: any): void{
@@ -64,17 +63,16 @@ export class FavouritesComponent implements OnInit {
     this.loadItems();
   }
 
-  resetFilters(){
-    this.selectedType = 'all';
-    this.selectedLocation = 'all';
-    this.minPrice = 0;
-    this.maxPrice = 0;
-    this.searchTerm = '';
-  }
-
-  basicSearch(){
-    this.resetFilters();
-    this.isCollapsed = !this.isCollapsed;
+  deleteMessage(id)
+  {
+    this.serverCalls.delMessage(this._auth.getId(),+id).subscribe(
+      data => {
+        this.messages.splice(_.findIndex(this.messages,{id: id}),1);
+        this.snoty.success("Message deleted.", "Success");
+        this.loadItems();
+      },
+      error => this.handleErrors(error)
+    );
   }
 
 }

@@ -1,0 +1,29 @@
+mat-button-toggle-group{
+    margin-top: 15px !important;
+    margin-left: 5px !important;
+}
+
+.mat-button-toggle-checked {
+    background-color: #007bff;
+    color: rgb(255, 255, 255);
+}
+
+.no-messages{
+    margin: 30px;
+}
+
+table {
+    margin-top: 15px;
+}
+  
+.img-circle {
+    max-height: 50px;
+    max-width: 50px;
+    border-radius: 150px;
+    margin-right: 5px;
+}
+  
+.table > tbody > tr > td {
+    vertical-align: middle;
+}
+

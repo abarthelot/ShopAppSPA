@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   maxPrice = 0;
   searchTerm = '';
   selectedOrder = 'created-dsc';
+  home = true;
 
   constructor(private serverCalls: ServerCallsService, private snoty: SnotifyService) { }
 

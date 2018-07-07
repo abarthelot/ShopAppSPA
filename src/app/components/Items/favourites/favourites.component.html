@@ -1,3 +1,152 @@
-<p>
-  favourites works!
-</p>
+<div class="main">
+    <h2>Favourites</h2>
+    <hr>
+  <div class="row" *ngIf="isCollapsed">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+              <div class="input-group mb-2" style="line-height: 35px; margin-top: 0.5rem;">
+                  <input type="text" class="form-control" (keyup.enter)="loadItems()" [(ngModel)]="searchTerm" placeholder="Search" aria-label="Search Terms" aria-describedby="basic-addon2">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-primary" (click)="loadItems()" type="button"><i class="fas fa-search"></i></button>
+                  </div>
+              </div>
+      </div>
+      <div class="col-md-4">
+          <div class="input-group mb-3">
+              <mat-form-field>
+                  <mat-select class="" [(value)]="selectedOrder">
+                      <mat-option value="created-dsc">Oldest</mat-option>
+                      <mat-option value="created-asc">Newest</mat-option>
+                      <mat-option value="price-asc">Lowest Price</mat-option>
+                      <mat-option value="price-dsc">Highest Price</mat-option>
+                  </mat-select>
+              </mat-form-field>
+          </div>
+      </div>
+  </div>
+  <div class="row filters">
+          <div class="col-md-3 mb-3">
+              <button type="button" *ngIf="isCollapsed" class="btn btn-primary" (click)="isCollapsed = !isCollapsed"
+                  [attr.aria-expanded]="!isCollapsed" aria-controls="collapseEvent">Advance Search
+              </button>
+              <button type="button" *ngIf="!isCollapsed" class="btn btn-primary" (click)="basicSearch()"
+                  [attr.aria-expanded]="!isCollapsed" aria-controls="collapseEvent">Basic Search
+              </button>
+          </div>
+          <div class="col-md-9 mb-3">
+              <div id="collapseEvent" class="card" [collapse]="isCollapsed">
+                      <div class="card-body">
+                          <h5 class="card-title">Advance Search</h5>
+                          <div class="row mb-3">
+                              <div class="col-md-12">
+                                      <input type="text" class="form-control" [(ngModel)]="searchTerm" placeholder="Search Terms" aria-label="Search Terms" aria-describedby="basic-addon2">
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-2" style="line-height: 35px;">Price :</div>
+                              <div class="col-md-10">
+                                  <div class="row">
+                                      <div class="col-md-5">
+                                              <div class="input-group">
+                                                  <div class="input-group-prepend">
+                                              <span class="input-group-text" id="basic-addon1">Rs</span>
+                                              </div>
+                                              <input type="number" min="0" value="0" step=".10" [(ngModel)]="minPrice" class="form-control" placeholder="Min" aria-label="Min" aria-describedby="basic-addon1">
+                                          </div>
+                                      </div>
+                                      <div class="col-md-1" style="line-height: 35px;">To</div>
+                                      <div class="col-md-6">
+                                              <div class="input-group">
+                                                  <div class="input-group-prepend">
+                                              <span class="input-group-text" id="basic-addon1">Rs</span>
+                                              </div>
+                                              <input type="number" min="0" value="0" step=".10" [(ngModel)]="maxPrice" class="form-control" placeholder="Max" aria-label="Max" aria-describedby="basic-addon1">
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-6">
+                                  <div class="row">
+                                      <div class="col-md-4" style="line-height: 60px;">
+                                          Type :
+                                      </div>
+                                      <div class="col-md-8">
+                                          <mat-form-field>
+                                              <mat-select [(value)]="selectedType">
+                                                <mat-option value="all">All</mat-option>
+                                                <mat-option value="tangible">Tangible</mat-option>
+                                                <mat-option value="service">Service</mat-option>
+                                              </mat-select>
+                                          </mat-form-field>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-md-6">
+                                  <div class="row">
+                                      <div class="col-md-4" style="line-height: 60px;">
+                                          Location :
+                                      </div>
+                                      <div class="col-md-8">
+                                          <mat-form-field>
+                                              <mat-select [(value)]="selectedType">
+                                                <mat-option value="all">All</mat-option>
+                                                <mat-option value="tangible">Tangible</mat-option>
+                                                <mat-option value="service">Service</mat-option>
+                                              </mat-select>
+                                          </mat-form-field>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-6">
+                                  <div class="row">
+                                      <div class="col-md-4" style="line-height: 55px;">
+                                          Order By :
+                                      </div>
+                                      <div class="col-md-8">
+                                          <mat-form-field>
+                                              <mat-select [(value)]="selectedOrder">
+                                                  <mat-option value="created-dsc">Oldest</mat-option>
+                                                  <mat-option value="created-asc">Newest</mat-option>
+                                                  <mat-option value="price-asc">Lowest Price</mat-option>
+                                                  <mat-option value="price-dsc">Highest Price</mat-option>
+                                              </mat-select>
+                                          </mat-form-field>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-md-6"></div>
+                          </div>
+                          <hr>
+                          <button mat-button color="warn" (click)="resetFilters()">Clear</button>
+                          <button mat-button color="primary" (click)="loadItems()">Search</button>
+                      </div>
+              </div>
+          </div>
+  </div>
+  <br>
+  <div class="row d-flex justify-content-between">
+      <div *ngFor="let item of items" class="card">
+          <app-item-card-component [item]="item" class="p-3"></app-item-card-component> 
+      </div>
+  </div>
+  <div class="row">
+    
+  </div>
+
+  <div class="row">
+      <div class="col">
+      </div>
+      <div class="col align-items-center">
+          <pagination [boundaryLinks]="true" [totalItems]="pagination.totalItems"
+                  [itemsPerPage]="pagination.itemsPerPage" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)"
+                  previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+          </pagination>
+      </div>
+      <div class="col">
+      </div>
+  </div>
+</div>

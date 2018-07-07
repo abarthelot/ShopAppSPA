@@ -1,0 +1,66 @@
+<h3 class="main-h">Message about Item: {{ itemTitle }}</h3>
+<hr>
+<div class="card">
+    <div class="card-body">
+      <div *ngIf="messages?.length == 0">
+          <p>No messages yet.</p>
+      </div>
+
+      <ul class="chat">
+          <li *ngFor="let message of messages">
+                <div *ngIf="message.senderId == userId">
+                    <span class="chat-img float-left">
+                        <img *ngIf="message.senderPhotoUrl" src="{{message.senderPhotoUrl}}" class="img-circle right-marg">
+                        <img *ngIf="!message.senderPhotoUrl" src="http://res.cloudinary.com/abart/image/upload/v1529393623/user.png" class="img-circle right-marg">
+                    </span>
+                    <div class="chat-body">
+                        <div class="header">
+                            <strong class="primary-font float-left">{{message.senderUsername}}</strong>
+                            <small class="text-muted float-right">
+                                <span class="fa fa-clock-o">&nbsp;{{message.messageSent | date:'medium'}}</span>
+                            </small><br>
+                        </div>
+                        <p>{{message.content}}</p>
+                    </div>
+                </div>
+
+                <div *ngIf="message.senderId != userId" style="padding-bottom: 20px !important;">
+                    <span class="chat-img float-right">
+                        <img *ngIf="message.senderPhotoUrl" src="{{message.senderPhotoUrl}}" class="img-circle left-marg">
+                        <img *ngIf="!message.senderPhotoUrl" src="http://res.cloudinary.com/abart/image/upload/v1529393623/user.png" class="img-circle left-marg">
+                    </span>
+                    <div class="chat-body">
+                        <div class="header">
+                            <small class="text-muted">
+                                <span class="fa fa-clock-o">{{message.messageSent | date:'medium'}}</span>
+                                <span *ngIf="!message.isRead" class="text-muted text-danger">(Unread)</span>
+                                <span *ngIf="message.isRead" class="text-muted text-success">(Read {{message.dateRead | date:'medium'}})</span>
+                            </small>
+                            <strong class="primary-font float-right">&nbsp;{{message.senderUsername}}</strong><br>
+                        </div>
+                        <div class="pull-right" style="padding-bottom: 15px;">
+                            <p>{{message.content}}</p>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+
+          </li>
+      </ul>
+    </div>
+    <div class="card-footer bg-transparent border-primary">
+        <form #messageForm="ngForm" (submit)="messageForm.valid && sendMessage()">
+            <div class="table-cell fill-width">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control input-sm" name="content" [(ngModel)]="newMessage.content"
+                     required placeholder="Enter message here" aria-label="Message here" autocomplete="off" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary btn-sm" [disabled]="!messageForm.valid">Send</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+

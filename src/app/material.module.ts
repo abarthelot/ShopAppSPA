@@ -15,7 +15,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
-
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 
 
@@ -23,10 +23,10 @@ import { MatSelectModule } from '@angular/material/select';
 @NgModule({
     imports: [ MatButtonModule, MatInputModule, MatIconModule, MatFormFieldModule, FlexLayoutModule, 
         MatCardModule, MatDividerModule, MatCheckboxModule, MatExpansionModule, MatListModule, MatProgressBarModule, 
-        MatTooltipModule, MatMenuModule, MatRadioModule, MatSelectModule ],
+        MatTooltipModule, MatMenuModule, MatRadioModule, MatSelectModule, MatButtonToggleModule ],
     exports: [ MatButtonModule, MatInputModule, MatIconModule, MatFormFieldModule, FlexLayoutModule,
         MatCardModule, MatDividerModule, MatCheckboxModule, MatExpansionModule, MatListModule, MatProgressBarModule, 
-        MatTooltipModule, MatMenuModule, MatRadioModule, MatSelectModule ]
+        MatTooltipModule, MatMenuModule, MatRadioModule, MatSelectModule, MatButtonToggleModule ]
 })
 
 export class MaterialModule{}

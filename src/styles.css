@@ -11,3 +11,16 @@
     /* alternatively: html { min-height: 100%; height: 100%; } */    
     
     html { min-height: 100%; }
+
+    .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
+        background: #007bff !important;
+        color: white !important;
+    }
+
+    .btn-primary {
+        color: #fff;
+        background-color: #007bff !important;
+        border-color: #007bff !important;
+    }
+
+    

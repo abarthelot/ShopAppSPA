@@ -6,8 +6,6 @@ app-item-card-component{
 
 .card{
     overflow: hidden;
-    margin: 0 auto; /* Added */
-    float: none; /* Added */
     margin-bottom: 10px; /* Added */
 }
 
@@ -42,5 +40,15 @@ mat-accordion[_ngcontent-c2] {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+}
+
+.left-radius {
+    border-top-left-radius: 5px !important;
+    border-bottom-left-radius: 5px !important;
+}
+ 
+.right-radius {
+    border-bottom-right-radius: 5px !important;
+    border-top-right-radius: 5px !important;
 }
 

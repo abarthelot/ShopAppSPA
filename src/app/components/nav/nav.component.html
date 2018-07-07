@@ -15,6 +15,9 @@
             <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedin()">
               <a class="nav-link"  [routerLink]="['/favourites']">Favourites</a>
             </li>
+            <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedin()">
+              <a class="nav-link"  [routerLink]="['/messages']">Messages</a>
+            </li>
             <li class="nav-item" routerLinkActive="active" *ngIf="!isLoggedin()">
               <a class="nav-link"  [routerLink]="['/register']">Register</a>
             </li>
