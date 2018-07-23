@@ -1,5 +1,6 @@
   
-  <img class="card-img-top img-fluid" src="{{ item.imageUrl }}" alt="{{ item.title }} pic">
+  <img *ngIf="item.imageUrl" class="card-img-top img-fluid" src="{{ item.imageUrl }}" alt="{{ item.title }} pic">
+  <img *ngIf="!item.imageUrl" class="card-img-top img-fluid" src="http://res.cloudinary.com/abart/image/upload/v1531508096/no-image.jpg" alt="no image">
   <div class="card-body">
     <h5 class="card-title">{{ item.title }}</h5>
     <p class="card-text">Shiping Address: {{ item.ShipingAddress }} 
