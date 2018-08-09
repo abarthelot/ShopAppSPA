@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class ServerCallsService {
 
-  constructor(private _http: HttpClient, private _baseInfo: BaseInfoService, private _auth: AuthService) {  
+  constructor(private _http: HttpClient, private _baseInfo: BaseInfoService, private _auth: AuthService) {
 
   }
 
@@ -48,15 +48,15 @@ export class ServerCallsService {
     let queryString = '?';
     if(page != null && itemsPerPage != null)
     {
-      queryString += 'pageNumber=' + page + '&pageSize=' + itemsPerPage; 
+      queryString += 'pageNumber=' + page + '&pageSize=' + itemsPerPage;
     }
     if(minPrice != null && maxPrice != null)
     {
-      queryString += '&minPrice=' + minPrice + '&maxPrice=' + maxPrice; 
+      queryString += '&minPrice=' + minPrice + '&maxPrice=' + maxPrice;
     }
     if(type != null)
     {
-      queryString += '&isService=' + type; 
+      queryString += '&isService=' + type;
     }
     if(searchTerm != null)
     {
@@ -65,7 +65,7 @@ export class ServerCallsService {
     if(orderBy != null)
     {
       queryString += '&orderBy=' + orderBy.trim();
-    }    
+    }
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
     //var jwtToken = this.jwt();
@@ -109,15 +109,15 @@ export class ServerCallsService {
     let queryString = '?';
     if(page != null && itemsPerPage != null)
     {
-      queryString += 'pageNumber=' + page + '&pageSize=' + itemsPerPage; 
+      queryString += 'pageNumber=' + page + '&pageSize=' + itemsPerPage;
     }
     if(minPrice != null && maxPrice != null)
     {
-      queryString += '&minPrice=' + minPrice + '&maxPrice=' + maxPrice; 
+      queryString += '&minPrice=' + minPrice + '&maxPrice=' + maxPrice;
     }
     if(type != null)
     {
-      queryString += '&isService=' + type; 
+      queryString += '&isService=' + type;
     }
     if(searchTerm != null)
     {
@@ -126,7 +126,7 @@ export class ServerCallsService {
     if(orderBy != null)
     {
       queryString += '&orderBy=' + orderBy.trim();
-    }    
+    }
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
     var jwtToken = this.jwt();
@@ -154,11 +154,11 @@ export class ServerCallsService {
     let queryString = '?';
     if(messageContainer != null)
     {
-      queryString += 'MessageContainer=' + messageContainer; 
+      queryString += 'MessageContainer=' + messageContainer;
     }
     if(page != null && itemsPerPage != null)
     {
-      queryString += '&pageNumber=' + page + '&pageSize=' + itemsPerPage; 
+      queryString += '&pageNumber=' + page + '&pageSize=' + itemsPerPage;
     }
 
     let headers = new HttpHeaders();
@@ -200,16 +200,79 @@ export class ServerCallsService {
     return this._http.post(`${this._baseInfo.serverUrl()}usr_msg/`+userId+'/message/'+id+'/read', {}, {headers: headers}).subscribe();
   }
 
+  addItem(item: any){
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    var jwtToken = this.jwt();
+    headers = headers.set('Authorization', jwtToken);
+    return this._http.post(`${this._baseInfo.serverUrl()}items`, item, {headers: headers});
+  }
+
+  getItemQuantity(id: number){
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    var jwtToken = this.jwt();
+    headers = headers.set('Authorization', jwtToken);
+    return this._http.get(`${this._baseInfo.serverUrl()}items/Quantity/`+id, {headers: headers});
+  }
+
+  AddCartItem(userId: number, itemId: number, quantity: number){
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    var jwtToken = this.jwt();
+    headers = headers.set('Authorization', jwtToken);
+    return this._http.post(`${this._baseInfo.serverUrl()}cart/`+userId+'/add/'+itemId+'/'+quantity, {}, {headers: headers});
+  }
+
+  getCartItems(id: number){
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    var jwtToken = this.jwt();
+    headers = headers.set('Authorization', jwtToken);
+    return this._http.get(`${this._baseInfo.serverUrl()}cart/`+id, {headers: headers});
+  }
+
+  deleteCartItem(userId: number, itemId: number){
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    var jwtToken = this.jwt();
+    headers = headers.set('Authorization', jwtToken);
+    return this._http.post(`${this._baseInfo.serverUrl()}cart/`+userId+'/delete/'+itemId, {}, {headers: headers});
+  }
+
+  updateCartItem(userId: number, itemId: number, quantity: number){
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    var jwtToken = this.jwt();
+    headers = headers.set('Authorization', jwtToken);
+    return this._http.post(`${this._baseInfo.serverUrl()}cart/`+userId+'/update/'+itemId+'/'+quantity, {}, {headers: headers});
+  }
+
+  getCartCount(id: number){
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    var jwtToken = this.jwt();
+    headers = headers.set('Authorization', jwtToken);
+    return this._http.get(`${this._baseInfo.serverUrl()}cart/count/`+id, {headers: headers});
+  }
+
+  getCartSum(userId: number){
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    var jwtToken = this.jwt();
+    headers = headers.set('Authorization', jwtToken);
+    return this._http.post(`${this._baseInfo.serverUrl()}cart/total/`+userId, {}, {headers: headers});
+  }
 
   private jwt(){
     let token = localStorage.getItem('token');
     var bearerToken  = 'Bearer ' + token;
     if(token){
-      return bearerToken; 
+      return bearerToken;
     }
   }
 
-  
+
 
 
 }

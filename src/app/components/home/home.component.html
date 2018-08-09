@@ -1,5 +1,5 @@
 <div class="main">
-    <div class="row" *ngIf="isCollapsed">
+    <div class="row full-width bg-grey " *ngIf="isCollapsed">
         <div class="col-md-4"></div>
         <div class="col-md-4">
                 <div class="input-group mb-2" style="line-height: 35px; margin-top: 0.5rem;">
@@ -24,14 +24,14 @@
     </div>
     <div class="row filters">
             <div class="col-md-3 mb-3">
-                <button type="button" *ngIf="isCollapsed" class="btn btn-primary" (click)="isCollapsed = !isCollapsed"
+                <button type="button" *ngIf="isCollapsed" class="btn btn-primary marg-10" (click)="isCollapsed = !isCollapsed"
                     [attr.aria-expanded]="!isCollapsed" aria-controls="collapseEvent">Advance Search
                 </button>
-                <button type="button" *ngIf="!isCollapsed" class="btn btn-primary" (click)="basicSearch()"
+                <button type="button" *ngIf="!isCollapsed" class="btn btn-primary marg-10" (click)="basicSearch()"
                     [attr.aria-expanded]="!isCollapsed" aria-controls="collapseEvent">Basic Search
                 </button>
             </div>
-            <div class="col-md-9 mb-3">
+            <div class="col-md-9 mb-3 marg-10">
                 <div id="collapseEvent" class="card" [collapse]="isCollapsed">
                         <div class="card-body">
                             <h5 class="card-title">Advance Search</h5>
@@ -128,7 +128,7 @@
     <br>
     <div class="row d-flex justify-content-between">
         <div *ngFor="let item of items" class="card">
-            <app-item-card-component [item]="item" [isHome]="home" class="p-3"></app-item-card-component> 
+            <app-item-card-component [item]="item" [isHome]="home" class="p-3"></app-item-card-component>
         </div>
     </div>
 
@@ -144,6 +144,9 @@
         <div class="col">
         </div>
     </div>
+
+
+
 </div>
 
-  
+

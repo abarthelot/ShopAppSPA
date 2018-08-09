@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { TooltipPosition } from '@angular/material';
 import { AuthService } from '../../services/auth.service';
 import { SnotifyModule, SnotifyService } from "ng-snotify";
+import { CartService } from '../../services/cart.service';
 
 
 
@@ -14,7 +15,7 @@ import { SnotifyModule, SnotifyService } from "ng-snotify";
 })
 export class NavComponent implements OnInit {
 
-  constructor(private _servercalls: ServerCallsService, private auth: AuthService, private router: Router, private _auth: AuthService, private snoty: SnotifyService) { }
+  constructor(private _servercalls: ServerCallsService, private auth: AuthService, private router: Router, private _auth: AuthService, private snoty: SnotifyService, public cart: CartService) { }
   formData: any = {
     username: null,
     password: null
@@ -24,7 +25,7 @@ export class NavComponent implements OnInit {
   ngOnInit() {
     this._auth.currentImageUrl.subscribe(photoUrl => this.imageUrl = photoUrl);
     console.log(this.imageUrl);
-    
+
   }
   isCollapsed = true;
   isMenuCollapsed = false;
@@ -61,7 +62,7 @@ export class NavComponent implements OnInit {
     localStorage.removeItem('user');
     console.log("Logged out.");
     this.router.navigateByUrl('/home');
-    
+
   }
 
   isLoggedin(){
@@ -71,7 +72,12 @@ export class NavComponent implements OnInit {
   setToken(data){
     console.log(data);
     this._auth.set(data);
+    this.cart.getCartCount();
     this.router.navigateByUrl('/home');
+  }
+
+  goToCart(){
+    this.router.navigateByUrl('/cart');
   }
 
   getUser(){

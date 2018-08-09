@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { tokenNotExpired, JwtHelper } from 'angular2-jwt';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { ServerCallsService } from './server-calls.service';
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +49,8 @@ export class AuthService {
   getId(){
     return this.decodedToken.nameid;
   }
+
+
 
 }
 

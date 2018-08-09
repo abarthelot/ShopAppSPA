@@ -7,9 +7,10 @@
         min-height: 100vh;
         background-color: aliceblue;
     }
-     
-    /* alternatively: html { min-height: 100%; height: 100%; } */    
+
+    /* alternatively: html { min-height: 100%; height: 100%; } */
     
+
     html { min-height: 100%; }
 
     .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
@@ -23,4 +24,20 @@
         border-color: #007bff !important;
     }
 
-    
+    .btn-outline-primary:hover {
+        color: #fff;
+        background-color: #007bff !important;
+        border-color: #007bff !important;
+    }
+
+    .btn-outline-primary {
+        color: #007bff;
+        background-color: transparent;
+        background-image: none;
+        border-color: #007bff;
+    }
+    .marg-10{
+        margin-top: 10px;
+    }
+
+

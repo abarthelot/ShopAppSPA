@@ -1,0 +1,78 @@
+<br>
+<h1>Add new item for sale</h1>
+<div class="card">
+  <div class="card-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 50%;"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Title</td>
+          <td>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Enter Address Here" [(ngModel)]="item.title">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>Description</td>
+          <td>
+            <mat-form-field class="full-width">
+              <textarea matInput maxlength="256" placeholder="Enter Description Here" [(ngModel)]="item.description"></textarea>
+              <mat-hint align="end">{{item?.description?.length}} / 256</mat-hint>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>Country</td>
+          <td>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Sri Lanka" type="text" [(ngModel)]="item.shipingCountry" readonly value="Sri Lanka">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>Postal Code</td>
+          <td>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Postal Code" type="text" [(ngModel)]="item.postalCode">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>Unit Price</td>
+          <td>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Unit Price" type="number" [(ngModel)]="item.unitPrice">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>Quantity</td>
+          <td>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Quantity" type="number" [(ngModel)]="item.quantity">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>Other url</td>
+          <td>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Other url" type="text" [(ngModel)]="item.otherUrl">
+            </mat-form-field>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <a class="btn btn-primary pull-right" (click)="onUpload()">Next</a>
+  </div>
+  <div class="">
+
+  </div>
+</div>
+

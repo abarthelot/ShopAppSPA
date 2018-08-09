@@ -16,3 +16,8 @@
     height: 250px;
     width: 300px;
 }
+
+.w100{
+  width: 100%;
+  margin-bottom: 5px;
+}

@@ -13,6 +13,9 @@ import { ItemEditComponentComponent } from './components/Items/item-edit-compone
 import { OnlyOwnerServiceService } from './services/only-owner-service.service';
 import { MessagesComponent } from './components/users/messages/messages.component';
 import { MessagesThreadComponent } from './components/users/messages-thread/messages-thread.component';
+import { ShopingCartComponent } from './components/cart/shoping-cart/shoping-cart.component';
+import { AddItemComponent } from './components/Items/add-item/add-item.component';
+import { ItemImageComponent } from './components/Items/item-image/item-image.component';
 
 
 const appRoutes: Routes = [
@@ -66,6 +69,21 @@ const appRoutes: Routes = [
     path: "msg_thread/:rId/:iId",
     component: MessagesThreadComponent,
     canActivate: [AfterLoginService]
+  },
+  {
+    path: "add-item",
+    component: AddItemComponent,
+    canActivate: [AfterLoginService]
+  },
+  {
+    path: "cart",
+    component: ShopingCartComponent,
+    canActivate: [AfterLoginService]
+  },
+  {
+    path: "item-image-add/:id",
+    component: ItemImageComponent,
+    canActivate: [OnlyOwnerServiceService]
   },
 ];
 

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './material.module';
 import { NavComponent } from './components/nav/nav.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -33,6 +33,11 @@ import { PaginationModule } from 'ngx-bootstrap';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { MessagesComponent } from './components/users/messages/messages.component';
 import { MessagesThreadComponent } from './components/users/messages-thread/messages-thread.component';
+import { ShopingCartComponent } from './components/cart/shoping-cart/shoping-cart.component';
+import { AddItemComponent } from './components/Items/add-item/add-item.component';
+import { CheckOutComponent } from './components/cart/check-out/check-out.component';
+import { ItemImageComponent } from './components/Items/item-image/item-image.component';
+import { CartItemComponent } from './components/cart/cart-item/cart-item.component';
 
 
 
@@ -54,7 +59,12 @@ import { MessagesThreadComponent } from './components/users/messages-thread/mess
     ItemImageEditorComponentComponent,
     TimeAgoPipe,
     MessagesComponent,
-    MessagesThreadComponent
+    MessagesThreadComponent,
+    ShopingCartComponent,
+    AddItemComponent,
+    CheckOutComponent,
+    ItemImageComponent,
+    CartItemComponent
   ],
   imports: [
     BrowserModule,
@@ -74,11 +84,11 @@ import { MessagesThreadComponent } from './components/users/messages-thread/mess
     CollapseModule.forRoot()
   ],
   providers: [
-                BaseInfoService, 
-                ServerCallsService, 
-                {provide: 'SnotifyToastConfig', useValue:ToastDefaults }, 
-                SnotifyService, 
-                AlertifyService 
+                BaseInfoService,
+                ServerCallsService,
+                {provide: 'SnotifyToastConfig', useValue:ToastDefaults },
+                SnotifyService,
+                AlertifyService
               ],
   bootstrap: [AppComponent]
 })

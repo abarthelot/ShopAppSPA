@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ServerCallsService } from '../../../services/server-calls.service';
 import { SnotifyModule, SnotifyService } from "ng-snotify";
 import { ActivatedRoute } from '@angular/router';
@@ -17,6 +17,11 @@ export class ItemDetailsComponent implements OnInit {
   galleryImages: NgxGalleryImage[];
   displayEdit= false;
   userId = 0;
+  avilableQuantity: number;
+  quantity = 1;
+
+  @ViewChild('cartTrig') cartTrig: ElementRef;
+  @ViewChild('closeTrig') closeTrig: ElementRef;
 
   constructor(private serverCalls: ServerCallsService, private snoty: SnotifyService, private route: ActivatedRoute, private _auth: AuthService) { }
 
@@ -68,7 +73,57 @@ export class ItemDetailsComponent implements OnInit {
     this.snoty.error("Failed to load, Please try again later.", "Error");
   }
 
-  
+  cart(){
+
+    this.serverCalls.getItemQuantity(+this.route.snapshot.params['id']).subscribe(
+      data => this.showCart(data),
+      error => this.handleErrors(error)
+    );
+
+  }
+
+  showCart(data){
+    console.log(data);
+    this.avilableQuantity = +data;
+    let el: HTMLElement = this.cartTrig.nativeElement as HTMLElement;
+    el.click();
+  }
+
+  closePopup(){
+    let el: HTMLElement = this.closeTrig.nativeElement as HTMLElement;
+    el.click();
+  }
+
+  addToCart(){
+    this.closePopup();
+    this.serverCalls.AddCartItem(this._auth.getId(),+this.route.snapshot.params['id'],+this.quantity).subscribe(
+      data => this.addCartSuccess(data),
+      error => this.handleErrors(error)
+    );
+  }
+
+  addCartSuccess(data){
+    this.snoty.success("Item added to your cart.", "Success");
+  }
+
+  addFavorite()
+  {
+    if(this._auth.isLoggedin() == true)
+    {
+      this.serverCalls.addFavorite(this._auth.getId(),this.item.id).subscribe(
+        data => this.AddFavSuccessHandel(data),
+        error => this.handleErrors(error)
+      );
+    }else{
+      this.snoty.info('Please login to add items to favorites.','Please login');
+    }
+
+  }
+
+  AddFavSuccessHandel(data)
+  {
+    this.snoty.success('item added to favorites.','Success');
+  }
 
 
 }

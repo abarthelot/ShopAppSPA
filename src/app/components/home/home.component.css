@@ -52,3 +52,24 @@ mat-accordion[_ngcontent-c2] {
     border-top-right-radius: 5px !important;
 }
 
+.full-width {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    overflow-x: hidden;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.bg-grey{
+    background-color: #dae0e5;
+}
+
+btn-outline-primary:hover {
+    color: #fff;
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+}

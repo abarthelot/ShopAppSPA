@@ -16,17 +16,19 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 
 
 @NgModule({
-    imports: [ MatButtonModule, MatInputModule, MatIconModule, MatFormFieldModule, FlexLayoutModule, 
-        MatCardModule, MatDividerModule, MatCheckboxModule, MatExpansionModule, MatListModule, MatProgressBarModule, 
-        MatTooltipModule, MatMenuModule, MatRadioModule, MatSelectModule, MatButtonToggleModule ],
+    imports: [ MatButtonModule, MatInputModule, MatIconModule, MatFormFieldModule, FlexLayoutModule,
+        MatCardModule, MatDividerModule, MatCheckboxModule, MatExpansionModule, MatListModule, MatProgressBarModule,
+        MatTooltipModule, MatMenuModule, MatRadioModule, MatSelectModule, MatButtonToggleModule, MatDialogModule ],
     exports: [ MatButtonModule, MatInputModule, MatIconModule, MatFormFieldModule, FlexLayoutModule,
-        MatCardModule, MatDividerModule, MatCheckboxModule, MatExpansionModule, MatListModule, MatProgressBarModule, 
-        MatTooltipModule, MatMenuModule, MatRadioModule, MatSelectModule, MatButtonToggleModule ]
+        MatCardModule, MatDividerModule, MatCheckboxModule, MatExpansionModule, MatListModule, MatProgressBarModule,
+        MatTooltipModule, MatMenuModule, MatRadioModule, MatSelectModule, MatButtonToggleModule, MatDialogModule ]
 })
 
 export class MaterialModule{}
