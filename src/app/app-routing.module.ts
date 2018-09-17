@@ -85,6 +85,11 @@ const appRoutes: Routes = [
     component: ItemImageComponent,
     canActivate: [OnlyOwnerServiceService]
   },
+  {
+    path: "check-out",
+    component: ShopingCartComponent,
+    canActivate: [AfterLoginService]
+  },
 ];
 
 @NgModule({

@@ -12,6 +12,6 @@ export class BaseInfoService {
   }
 
   serverUrl(){
-    return "http://localhost:5000/api/";
+    return "http://localhost:49523/api/";
   }
 }

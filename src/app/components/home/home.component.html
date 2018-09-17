@@ -126,9 +126,9 @@
             </div>
     </div>
     <br>
-    <div class="row d-flex justify-content-between">
-        <div *ngFor="let item of items" class="card">
-            <app-item-card-component [item]="item" [isHome]="home" class="p-3"></app-item-card-component>
+    <div class="row d-flex justify-content-between mb-3" style="display: inline !important;">
+        <div *ngFor="let item of items" class="card mb-5" style="display: inline !important;">
+            <app-item-card-component [item]="item" [isHome]="home" class="mb-3"></app-item-card-component>
         </div>
     </div>
 

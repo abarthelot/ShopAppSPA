@@ -23,7 +23,7 @@ app-item-card-component{
 mat-accordion[_ngcontent-c2] {
     width: 100%;
     padding: 20px;
-    
+
 }
 .main{
     margin: 25px !important;
@@ -46,7 +46,7 @@ mat-accordion[_ngcontent-c2] {
     border-top-left-radius: 5px !important;
     border-bottom-left-radius: 5px !important;
 }
- 
+
 .right-radius {
     border-bottom-right-radius: 5px !important;
     border-top-right-radius: 5px !important;

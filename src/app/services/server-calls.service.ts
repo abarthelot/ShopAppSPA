@@ -264,6 +264,30 @@ export class ServerCallsService {
     return this._http.post(`${this._baseInfo.serverUrl()}cart/total/`+userId, {}, {headers: headers});
   }
 
+  getPaypalInfo(){
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    var jwtToken = this.jwt();
+    headers = headers.set('Authorization', jwtToken);
+    return this._http.post(`${this._baseInfo.serverUrl()}cart/paypal/info`, {}, {headers: headers});
+  }
+
+  getPayPalItems(id: number){
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    var jwtToken = this.jwt();
+    headers = headers.set('Authorization', jwtToken);
+    return this._http.get(`${this._baseInfo.serverUrl()}cart/paypal/cart/`+id, {headers: headers});
+  }
+
+  CompletePayments(paymentInfo: any){
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    var jwtToken = this.jwt();
+    headers = headers.set('Authorization', jwtToken);
+    return this._http.post(`${this._baseInfo.serverUrl()}cart/paypal/cart/complete`,paymentInfo, {headers: headers});
+  }
+
   private jwt(){
     let token = localStorage.getItem('token');
     var bearerToken  = 'Bearer ' + token;

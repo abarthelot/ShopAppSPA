@@ -1,3 +1,4 @@
+
 <div class="card shopping-cart">
   <div class="card-header bg-dark text-light">
       <i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -29,10 +30,15 @@
           </div>
       </div>
       <div class="pull-right" style="margin: 10px">
-          <a href="" class="btn btn-success pull-right">Checkout</a>
+          <div id="paypal-checkout-btn" (onPaymentCompleted)="finishPayments($event)" class="btn btn-success pull-right"></div>
           <div class="pull-right" style="margin: 5px">
               Total price: <b>{{ cartTotal | currency:"USD$"}}</b>
           </div>
       </div>
   </div>
 </div>
+<div class="cart-form">
+  <form #cartFormPost method="POST" action="https://www.sandbox.paypal.com/cgi-bin/webscr">
+  </form>
+</div>
+
